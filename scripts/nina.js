@@ -38,10 +38,11 @@ function createLine(index) {
     btnDelete.value = 'X';
 
     btnDelete.addEventListener('click', function() {
-        // confirm('delete line ' + index + ' ?');
-        tabTransfers.splice(index, 1);
-        line.remove();
-        console.log(tabTransfers);
+        if(confirm('delete line ' + index + ' ?')) {
+            tabTransfers.splice(index, 1);
+            line.remove();
+            console.log(tabTransfers);
+        }
     })
     line.appendChild(btnDelete);
 
@@ -73,11 +74,10 @@ function createInput(index, operationType) {
     return inp;
 }
 
-
 //CALLS TESTS
 tabTransfers.push({'expense': 10, 'income': 0});
-tabTransfers.push({'expense': 10});
-tabTransfers.push({'income': 50});
+tabTransfers.push({'expense': 10, 'income': 0});
+tabTransfers.push({'expense': 0, 'income': 50});
 tabTransfers.push({'income': 30, 'label': 'test'});
 
 generateTab();
