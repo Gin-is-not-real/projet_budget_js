@@ -17,7 +17,7 @@ function addExpense() {
     let value = inpExpense.value;
     let label = inpLabel.value || '';
 
-    tabTransfers.push({'expense': value, 'income': 0});
+    tabTransfers.push({'expense': value, 'income': 0, 'label': label});
     inpExpense.value = '';
 
     console.log(tabTransfers);
