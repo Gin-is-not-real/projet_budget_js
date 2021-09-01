@@ -1,5 +1,5 @@
 let tabTransfers = [];
-console.log(tabTransfers);
+// console.log(tabTransfers);
 
 let btnExpense = document.querySelector('#btn-new-expense');
 let btnIncome = document.querySelector('#btn-new-income');
@@ -29,7 +29,7 @@ function addIncome() {
 
     inpIncome.value = '';
 
-    console.log(tabTransfers);
+    // console.log(tabTransfers);
 }
 
 
