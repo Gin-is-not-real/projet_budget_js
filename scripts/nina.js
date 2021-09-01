@@ -4,12 +4,11 @@
 let cashTab = document.querySelector('#cash_tab');
 
 function generateTab() {
-    for(let i = 0; i < tabTransfers.length -1; i++) {
+    for(let i = 0; i < tabTransfers.length; i++) {
         let line = tabTransfers[i];
 
         createLine(i);
     }
-
 }
 
 function createLine(index) {
@@ -20,18 +19,10 @@ function createLine(index) {
     let line = document.createElement('form');
     line.id = 'line-' + index;
 
-    let exp = document.createElement('input');
-    exp.type = 'number';
-    exp.id = 'inp-exp-' + index;
-    exp.value = tabLine['expense'];
-    exp.disabled = true;
+    exp = createInput(index, 'expense');
     line.appendChild(exp);
 
-    let inc = document.createElement('input');
-    exp.type = 'number';
-    inc.id = 'inp-inc-' + index;
-    inc.value = tabLine['income'];
-    inc.disabled = true;
+    inc = createInput(index, 'income');
     line.appendChild(inc);
 
     let lab = document.createElement('input');
@@ -41,9 +32,49 @@ function createLine(index) {
     lab.disabled = true;
     line.appendChild(lab);
 
+    let btnDelete = document.createElement('input');
+    btnDelete.type = 'button';
+    btnDelete.id ='btn-del-' + index;
+    btnDelete.value = 'X';
+
+    btnDelete.addEventListener('click', function() {
+        // confirm('delete line ' + index + ' ?');
+        tabTransfers.splice(index, 1);
+        line.remove();
+        console.log(tabTransfers);
+    })
+    line.appendChild(btnDelete);
+
+    let btnOnEdit = document.createElement('input');
+    btnOnEdit.type = 'button';
+    btnOnEdit.id ='btn-on-edit-' + index;
+    btnOnEdit.value = 'edit';
+    line.appendChild(btnOnEdit);
+
+    let btnValidEdit = document.createElement('input');
+    btnValidEdit.type = 'button';
+    btnValidEdit.id ='btn-valid-edit-' + index;
+    btnValidEdit.value = 'valid';
+    btnValidEdit.hidden = true;
+    line.appendChild(btnValidEdit);
+
     cashTab.appendChild(line);
 }
 
+//attribue l'id et l'attribut read only en fonction du type de l'operation
+function createInput(index, operationType) {
+    let inp = document.createElement('input');
+    inp.type = 'number';
+    inp.id = 'inp-' + operationType + '-' + index;
+    inp.value = tabTransfers[index][operationType] || 0;
+    inp.disabled = true;
+    inp.readOnly = inp.value == 0 ? true : false;
+
+    return inp;
+}
+
+
+//CALLS TESTS
 tabTransfers.push({'expense': 10, 'income': 0});
 tabTransfers.push({'expense': 10});
 tabTransfers.push({'income': 50});
