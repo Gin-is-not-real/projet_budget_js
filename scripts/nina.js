@@ -50,6 +50,9 @@ function createLine(index) {
     btnOnEdit.type = 'button';
     btnOnEdit.id ='btn-on-edit-' + index;
     btnOnEdit.value = 'edit';
+
+    btnOnEdit.addEventListener('click', function() {
+    })
     line.appendChild(btnOnEdit);
 
     let btnValidEdit = document.createElement('input');
