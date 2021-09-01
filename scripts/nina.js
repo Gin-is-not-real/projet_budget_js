@@ -41,6 +41,8 @@ function createLine(index) {
         if(confirm('delete line ' + index + ' ?')) {
             tabTransfers.splice(index, 1);
             line.remove();
+			sum_tab = get_sum();
+			sum_dspl(sum_tab);
             console.log(tabTransfers);
         }
     })
@@ -78,10 +80,9 @@ function createInput(index, operationType) {
 }
 
 //CALLS TESTS
-tabTransfers.push({'expense': 10, 'income': 0});
-tabTransfers.push({'expense': 10, 'income': 0});
-tabTransfers.push({'expense': 0, 'income': 50});
-tabTransfers.push({'expense': 30, 'income': 30, 'label': 'test'});
+// tabTransfers.push({'expense': 10, 'income': 0});
+// tabTransfers.push({'expense': 10, 'income': 0});
+// tabTransfers.push({'expense': 0, 'income': 50});
+// tabTransfers.push({'expense': 30, 'income': 30, 'label': 'test'});
 
 generateTab();
-console.log(add_number());
