@@ -20,16 +20,17 @@ function addExpense() {
     tabTransfers.push({'expense': value, 'income': 0, 'label': label});
     inpExpense.value = '';
 
-    console.log(tabTransfers);
+    createLine(tabTransfers.length - 1);
 }
 
 function addIncome() {
     let value = inpIncome.value;
+    let label = inpLabel.value || '';
+
     tabTransfers.push({'expense': 0, 'income': value, 'label': label});
 
     inpIncome.value = '';
-
-    // console.log(tabTransfers);
+    createLine(tabTransfers.length - 1);
 }
 
 
