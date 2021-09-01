@@ -11,14 +11,22 @@ function add_number()
 	// tabTransfers.push({'sum_exp': sum_expense, 'sum_in':sum_income});
 }
 
+function get_sum()
+{
+	return add_number();
+}
 
+function sum_dspl(sum_tab)
+{
+	sum_expense.textContent = sum_tab['sum_exp'];
+	sum_income.textContent = sum_tab['sum_in'];
+}
 
-tabTransfers.push({'expense': 25, 'income': 0});
-tabTransfers.push({'expense': 50, 'income': 0});
-tabTransfers.push({'expense': 40, 'income': 0});
-tabTransfers.push({'expense': 0, 'income': 30});
-tabTransfers.push({'expense': 10, 'income': 0});
-tabTransfers.push({'expense': 0, 'income': 70});
-tabTransfers.push({'expense': 0, 'income': 60});
-tabTransfers.push({'expense': 0, 'income': 45});
-// console.log(add_number());
+// tabTransfers.push({'expense': 25, 'income': 0});
+// tabTransfers.push({'expense': 50, 'income': 0});
+// tabTransfers.push({'expense': 40, 'income': 0});
+// tabTransfers.push({'expense': 0, 'income': 30});
+// tabTransfers.push({'expense': 10, 'income': 0});
+// tabTransfers.push({'expense': 0, 'income': 70});
+// tabTransfers.push({'expense': 0, 'income': 60});
+// tabTransfers.push({'expense': 0, 'income': 45});
