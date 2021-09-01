@@ -22,6 +22,11 @@ function sum_dspl(sum_tab)
 	sum_income.textContent = sum_tab['sum_in'];
 }
 
+function chg_tab_line(index, new_expense, new_income)
+{
+	tabTransfers[index] = {'expense': Number(new_expense), 'income': Number(new_income)};
+}
+
 // tabTransfers.push({'expense': 25, 'income': 0});
 // tabTransfers.push({'expense': 50, 'income': 0});
 // tabTransfers.push({'expense': 40, 'income': 0});
