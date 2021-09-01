@@ -19,18 +19,18 @@ function createLine(index) {
     let line = document.createElement('form');
     line.id = 'line-' + index;
 
-    let exp = createInput(index, 'expense');
-    line.appendChild(exp);
-
-    let inc = createInput(index, 'income');
-    line.appendChild(inc);
-
     let lab = document.createElement('input');
     lab.type = 'text';
     lab.id = 'inp-label-' + index;
     lab.value = tabLine['label'];
     lab.disabled = true;
     line.appendChild(lab);
+
+    let exp = createInput(index, 'expense');
+    line.appendChild(exp);
+
+    let inc = createInput(index, 'income');
+    line.appendChild(inc);
 
     let btnDelete = document.createElement('input');
     btnDelete.type = 'button';
@@ -71,7 +71,7 @@ function createLine(index) {
 	btnValidEdit.addEventListener('click', function() {
 		this.hidden = true;
 		btnOnEdit.hidden = false;
-		chg_tab_line(index, exp.value, inc.value);
+		chg_tab_line(index, lab.value, exp.value, inc.value);
 		exp.disabled = true;
 		inc.disabled = true;
 		lab.disabled = true;
