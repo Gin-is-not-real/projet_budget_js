@@ -50,6 +50,7 @@ function addIncome() {
     tabTransfers.push({'expense': 0, 'income': Number(value), 'label': label});
 
     inpIncome.value = '';
+	
     createLine(tabTransfers.length - 1);
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);

@@ -19,14 +19,14 @@ function createLine(index) {
     let line = document.createElement('form');
     line.id = 'line-' + index;
 
-    exp = createInput(index, 'expense');
+    let exp = createInput(index, 'expense');
     line.appendChild(exp);
 
-    inc = createInput(index, 'income');
+    let inc = createInput(index, 'income');
     line.appendChild(inc);
 
     let lab = document.createElement('input');
-    exp.type = 'text';
+    lab.type = 'text';
     lab.id = 'inp-label-' + index;
     lab.value = tabLine['label'];
     lab.disabled = true;
@@ -54,6 +54,11 @@ function createLine(index) {
     btnOnEdit.value = 'edit';
 
     btnOnEdit.addEventListener('click', function() {
+		this.hidden = true;
+		btnValidEdit.hidden = false;
+		exp.disabled = false;
+		inc.disabled = false;
+		lab.disabled = false;
     })
     line.appendChild(btnOnEdit);
 
@@ -62,6 +67,17 @@ function createLine(index) {
     btnValidEdit.id ='btn-valid-edit-' + index;
     btnValidEdit.value = 'valid';
     btnValidEdit.hidden = true;
+
+	btnValidEdit.addEventListener('click', function() {
+		this.hidden = true;
+		btnOnEdit.hidden = false;
+		chg_tab_line(index, exp.value, inc.value);
+		exp.disabled = true;
+		inc.disabled = true;
+		lab.disabled = true;
+		sum_tab = get_sum();
+		sum_dspl(sum_tab);
+	})
     line.appendChild(btnValidEdit);
 
     cashTab.appendChild(line);
