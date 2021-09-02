@@ -4,45 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<link rel="stylesheet" href="style/main.css"/>
+	<title>Gestion de budget</title>	
 </head>
 <body>
     <main>
         <header>
-            <h1>titre</h1>
+            <h1>Gestionnaire de budget</h1>
         </header>
 
         <div class="content">
 
 
              <form action="" method="" id="form-new-operation">
-                 <div>
-                    <label for="new-expense">new expense</label>
-                    <input type="number" id="inp-new-expense" name="inp-new-expense"/>
-                    <button type="button" id="btn-new-expense" >add</button>
+				 <div class="master">
+					 <label for="new-label">Operation label</label>
+					 <input type="text" id="inp-new-label" name="inp-new-label" />
+				 </div>
+                 <div class="master">
+                    <label for="new-expense">New expense</label>
+					<div class="inp_div">
+                  		<input type="number" id="inp-new-expense" name="inp-new-expense"/>
+                    	<button type="button" id="btn-new-expense" >Add</button>
+					</div>
                  </div>
-                 <div>
-                    <label for="new-income">new income</label>
-                    <input type="number" id="inp-new-income" name="inp-new-income"/>
-                    <button type="button" id="btn-new-income">add</button>
-                </div>
-                <div>
-                    <label for="new-label">operation label</label>
-                    <input type="text" id="inp-new-label" name="inp-new-label" />
+                 <div class="master">
+                    <label for="new-income">New income</label>
+					<div class="inp_div">
+                   		<input type="number" id="inp-new-income" name="inp-new-income"/>
+                    	<button type="button" id="btn-new-income">Add</button>
+					</div>
                 </div>
              </form>
 
 			 <div id="cash_tab">
-
+				<div id="line-label">
+					<input id="line-label-label" type="text" value="Label" readonly/>
+					<input id="line-label-exp" type="text" value="Expense (€)" readonly/>
+					<input id="line-label-inc" type="text" value="Income (€)" readonly/>
+					<input type="button" value="X" disabled/>
+					<input type="button" value="edit" disabled/>
+				</div>
 			 </div>
 			 <div id="sum">
+				 <div>
+					 <p class="label">Total expense</p>
+					 <p id="sum_expense"></p>
+				</div>
+				<div>
+					<p class="label">Final recipe</p>
+					<p id="recipe"></p>
+				</div>
 				<div>
 					<p class="label">Total income</p>
 					<p id="sum_income"></p>
-				</div>
-				<div>
-					<p class="label">Total expense</p>
-					<p id="sum_expense"></p>
 				</div>
 			 </div>
 

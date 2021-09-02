@@ -1,0 +1,246 @@
+@font-face
+{
+	font-family: "Abel";
+	src: url("Abel-Regular.ttf");
+}
+
+@font-face
+{
+	font-family: "Acme";
+	src: url("Acme-REgular.ttf");
+}
+
+:root
+{
+	/* --main-color: #420909; */
+	/* --main-color: #093242; */
+	--main-color: #09420c;
+	/* --sec-color: #e4a5a5; */
+	/* --sec-color: #b4daeb; */
+	--sec-color: #b4ebb4;
+}
+
+html, body
+{
+	margin: 0px;
+}
+
+html
+{
+	background-color: #e5e5e5;
+}
+
+h1
+{
+	font-family: Acme;
+	font-size: 30px;
+	text-align: center;
+	border: solid 3px var(--main-color);
+	border-radius: 12px;
+	padding: 3px 8px 3px 8px;
+	margin-top: 6vh;
+	margin-bottom: 10vh;
+}
+
+header, body, div.content,
+div.content form#form-new-operation div.master,
+#cash_tab
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div.content
+{
+	padding: 25px;
+	border-radius: 20px;
+	border: solid 2px var(--main-color);
+	background-color: var(--sec-color);
+}
+
+form#form-new-operation div.inp_div
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+form#form-new-operation
+{
+	gap: 24px;
+}
+
+form#form-new-operation label
+{
+	font-size: 20px;
+	font-family: Abel;
+	font-weight: bold;
+}
+
+form#form-new-operation input,
+form#form-new-operation button
+{
+	font-size: 18px;
+	font-family: Abel;
+	border: solid 2px var(--main-color);
+}
+
+form#form-new-operation input
+{
+	text-align: right;
+	border-radius: 8px 0px 0px 8px;
+	transition-duration: 0.18s;
+}
+
+form#form-new-operation input:hover
+{
+	box-shadow: 0px 0px 15px var(--main-color);
+	transition-duration: 0.18s;
+}
+
+form#form-new-operation input:focus
+{
+	animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle
+{
+	0%
+	{
+		box-shadow: 0px 0px 0px var(--main-color);
+	}
+	100%
+	{
+		box-shadow: 0px 0px 15px var(--main-color);
+	}
+}
+
+form#form-new-operation input#inp-new-label
+{
+	text-align: center;
+	border-radius: 8px;
+}
+
+form#form-new-operation button
+{
+	border-left: 0px;
+	border-radius: 0px 8px 8px 0px;
+	background-color: #e5e5e5a0;
+	transition-duration: 0.18s;
+}
+
+form#form-new-operation button:hover
+{
+	color: #e5e5e5;
+	background-color: var(--main-color);
+	transition-duration: 0.18s;
+}
+
+div.content form#form-new-operation,
+div#cash_tab form, div#line-label, div#sum
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+div#line-label input
+{
+	font-weight: bold;
+	text-align: center;
+}
+
+div#line-label input[type=button]
+{
+	opacity: 0%;
+}
+
+div#line-label #line-label-label
+{
+	border-radius: 8px 0px 0px 0px;
+}
+
+div#line-label #line-label-inc
+{
+	border-radius: 0px 8px 0px 0px;
+}
+
+div#cash_tab
+{
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+div#cash_tab input
+{
+	font-size: 18px;
+	font-family: Abel;
+	color: #000;
+	border: solid 1px var(--main-color);
+	margin: 1px;
+	transition-duration: 0.18s;
+}
+
+div#cash_tab input[type=button]
+{
+	background-color: #e5e5e5a0;
+}
+
+div#cash_tab input[type=button]:hover
+{
+	color: #e5e5e5;
+	background-color: var(--main-color);
+	transition-duration: 0.18s;
+}
+
+div#cash_tab form input.inp-exp-inc
+{
+	text-align: right;
+}
+
+div#cash_tab input.btnOnEdit,
+div#cash_tab input.btnValidEdit
+{
+	border-radius: 0px 8px 8px 0px;
+}
+
+div#cash_tab input.inp-label-last-line
+{
+	border-radius: 0px 0px 0px 8px;
+}
+
+div#sum
+{
+	gap: 50px;
+}
+
+div#sum div
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	border: solid 1px var(--main-color);
+	border-radius: 10px;
+	background-color: #e5e5e5a0;
+	padding: 5px;
+}
+
+div#sum div p
+{
+	font-size: 20px;
+	font-family: Abel;;
+	margin: 0px;
+}
+
+div#sum div p.label
+{
+	font-weight: bold;
+}
+
+input
+{
+	outline: none;
+}

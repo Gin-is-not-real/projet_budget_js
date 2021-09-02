@@ -20,8 +20,9 @@ function get_sum()
 
 function sum_dspl(sum_tab)
 {
-	sum_expense.textContent = sum_tab['sum_exp'];
-	sum_income.textContent = sum_tab['sum_in'];
+	sum_expense.textContent = sum_tab['sum_exp'] + " €";
+	sum_recipe.textContent = sum_tab['sum_all'] + " €";
+	sum_income.textContent = sum_tab['sum_in'] + " €";
 }
 
 function chg_tab_line(index, new_label, new_expense, new_income)
