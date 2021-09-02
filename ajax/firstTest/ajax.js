@@ -36,24 +36,24 @@ function testRequest(url) {
         }
     };
     //on lance la requete
-    // httpRequest.open('GET', 'ajax/ajax.php?get=youhou', true);
-    // httpRequest.open('GET', 'ajax/ajax.xml', true);
+    // httpRequest.open('GET', 'ajax/ajax.php?get=youhou', true);   //appele le fichier ajax.php avec un GET
+    // httpRequest.open('GET', 'ajax/ajax.xml', true);      //appele le fichier xml
     httpRequest.open('GET', url, true);
     httpRequest.send();
 }
 // testRequest('ajax/ajax.xml');
 
 
-function sendRequest(url, variable) {
-    httpRequest.onreadystatechange = alertContents;
-    //pass un get + u post
-    // httpRequest.open('POST', url + '?get=' + encodeURIComponent(variable), true);
+sendPostRequest('ajax/ajax.php', 12, 52);
 
+function sendPostRequest(url, var1, var2) {
+    httpRequest.onreadystatechange = alertContents;
+    //pass un get + un post
+    // httpRequest.open('POST', url + '?get=' + encodeURIComponent(var1), true);
     httpRequest.open('POST', url, true);
 
-    
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    httpRequest.send('variable=' + encodeURIComponent(variable));
+    httpRequest.send('var1=' + encodeURIComponent(var1) + '&var2=' + encodeURIComponent(var2));
 }
 
 function alertContents() {
@@ -73,4 +73,3 @@ function alertContents() {
             console.log('---> pas encore pret');
         }
 }
-sendRequest('ajax/ajax.php', 'et voici ma variable');

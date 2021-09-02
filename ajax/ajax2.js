@@ -1,41 +1,42 @@
-makeRequest('ajax/ajax.xml');
+let httpRequest;
 
-function makeRequest(url) {
+function sendPostRequest(url, lineObject) {
     httpRequest = new XMLHttpRequest();
 
-    if(!httpRequest) {
-        alert('Impossible de creer une instance de XMLHTTP');
-        return false;
-    }
-    else {
-        httpRequest.onreadystatechange = function() {
-            alertContents(httpRequest);
-        };
-        httpRequest.open('GET', url);
-        httpRequest.send();
-    }
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('POST', url, true);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    let lineId = lineObject.lineId;
+    let expense = lineObject.expense;
+    let income = lineObject.income;
+    let label = lineObject.label;
+
+    httpRequest.send(
+        'line_id=' + encodeURIComponent(lineId) + 
+        '&expense=' + encodeURIComponent(expense) +
+        '&income=' + encodeURIComponent(income) +
+        '&label=' + encodeURIComponent(label)
+        );
 }
-function alertContents(httpRequest) {
-    try {
-        console.log('readyState: ', httpRequest.readyState);
+
+function alertContents() {
+        //traitement de la reponse
+        // console.log('---------> readyState: ', this.readyState, 'status: ', this.status);
 
         if(httpRequest.readyState === XMLHttpRequest.DONE) {
-            console.log('status: ', httpRequest.status);
-
             if(httpRequest.status === 200) {
-                // alert(httpRequest.responseText); 
-                //jusqu'ici tout va bien...
-
-                let xmldoc = httpRequest.responseXML;
-                let rootNode = xmldoc.getElementByTagName('root').item(0);
-                alert(rootNode.firstChild.data);
+                let response = JSON.parse(httpRequest.responseText);
+                alert(response.computedString);
             }
             else {
-                alert('probleme avec la requete');
+                console.log('probleme avec la requete', httpRequest.status);
             }
         }
-    }
-    catch(e) {
-        alert("Une exception s’est produite : " + e.description);
-    }
+        else {
+            console.log('---> pas encore pret');
+        }
 }
+
+////////////////////////:
+//CALL
