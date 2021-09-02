@@ -5,24 +5,18 @@ let cashTab = document.querySelector('#cash_tab');
 
 function generateTab() {
     for(let i = 0; i < tabTransfers.length; i++) {
-        let line = tabTransfers[i];
-
-        createLine(i);
+        createLine(i, tabTransfers[i]);
     }
 }
 
-function createLine(index) {
-    //stocke la ligne du tableau dees trznferts et defini le type de l'operation 
-    let tabLine = tabTransfers[index];
-    let operationType = tabLine['expense'] != 0 ? tabLine['expense'] : tabLine['income'];
-
+function createLine(index, lineObject) {
     let line = document.createElement('form');
     line.id = 'line-' + index;
 
     let lab = document.createElement('input');
     lab.type = 'text';
     lab.id = 'inp-label-' + index;
-    lab.value = tabLine['label'];
+    lab.value = lineObject.label;
     lab.disabled = true;
     line.appendChild(lab);
 

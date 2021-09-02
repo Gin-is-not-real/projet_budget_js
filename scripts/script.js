@@ -34,26 +34,32 @@ sum_dspl(sum_tab);
 function addExpense() {
     let value = inpExpense.value;
     let label = inpLabel.value || '';
+    let lineObject = {'label': label, 'expense': Number(value), 'income': 0};
 
-    tabTransfers.push({'label': label, 'expense': Number(value), 'income': 0});
-    inpExpense.value = '';
+    tabTransfers.push(lineObject);
 
-    createLine(tabTransfers.length - 1);
+    createLine(tabTransfers.length - 1, lineObject);
+
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
+
+    inpExpense.value = '';
 }
 
 function addIncome() {
     let value = inpIncome.value;
     let label = inpLabel.value || '';
+    let lineObject = {'label': label, 'expense': 0, 'income': Number(value)};
 
-    tabTransfers.push({'label': label, 'expense': 0, 'income': Number(value)});
+    tabTransfers.push(lineObject);
+
+    createLine(tabTransfers.length - 1, lineObject);
+
+	sum_tab = get_sum();
+	sum_dspl(sum_tab);
 
     inpIncome.value = '';
 
-    createLine(tabTransfers.length - 1);
-	sum_tab = get_sum();
-	sum_dspl(sum_tab);
 }
 
 
