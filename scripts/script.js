@@ -21,13 +21,13 @@ tabTransfers.push({'label': 'test', 'expense': 10, 'income': 0});
 tabTransfers.push({'label': 'test', 'expense': 0, 'income': 50});
 tabTransfers.push({'label': 'test', 'expense': 30, 'income': 30});
 tabTransfers.push({'label': 'test', 'expense': 25, 'income': 0});
-tabTransfers.push({'label': 'test', 'expense': 50, 'income': 0});
-tabTransfers.push({'label': 'test', 'expense': 40, 'income': 0});
-tabTransfers.push({'label': 'test', 'expense': 0, 'income': 30});
-tabTransfers.push({'label': 'test', 'expense': 10, 'income': 0});
-tabTransfers.push({'label': 'test', 'expense': 0, 'income': 70});
-tabTransfers.push({'label': 'test', 'expense': 0, 'income': 60});
-tabTransfers.push({'label': 'test', 'expense': 0, 'income': 45});
+// tabTransfers.push({'label': 'test', 'expense': 50, 'income': 0});
+// tabTransfers.push({'label': 'test', 'expense': 40, 'income': 0});
+// tabTransfers.push({'label': 'test', 'expense': 0, 'income': 30});
+// tabTransfers.push({'label': 'test', 'expense': 10, 'income': 0});
+// tabTransfers.push({'label': 'test', 'expense': 0, 'income': 70});
+// tabTransfers.push({'label': 'test', 'expense': 0, 'income': 60});
+// tabTransfers.push({'label': 'test', 'expense': 0, 'income': 45});
 sum_tab = get_sum();
 sum_dspl(sum_tab);
 
@@ -50,7 +50,7 @@ function addIncome() {
     let value = inpIncome.value;
     let label = inpLabel.value || '';
     let lineObject = {'label': label, 'expense': 0, 'income': Number(value)};
-
+    console.log(lineObject);
     tabTransfers.push(lineObject);
 
     createLine(tabTransfers.length - 1, lineObject);
