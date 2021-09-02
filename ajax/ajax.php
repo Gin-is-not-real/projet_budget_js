@@ -1,8 +1,4 @@
 <?php 
-echo '<p>youhou ! je suis la page ajax.php</p>';
-
+echo 'je suis la page ajax.php ' . $_GET['get'];
 ?>
 
-<header>
-    <h1>TEST !!!</h1>
-</header>

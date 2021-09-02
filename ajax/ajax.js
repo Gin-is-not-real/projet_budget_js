@@ -1,5 +1,7 @@
 let httpRequest = new XMLHttpRequest();
 
+let textOfPhp = '';
+
 function testRequest() {
     console.log(httpRequest);
     //on defini la fonction qui traitera la reponse du serveur 
@@ -16,13 +18,13 @@ function testRequest() {
                 console.log('status 200');
 
                 //pour une reponse texte:
-                console.log('responseText : ', httpRequest.responseText);
+                // console.log('responseText : ', httpRequest.responseText);
 
                 //pour une reponse xml (ne fonctionne pas..)
-                // let xmldoc = httpRequest.responseXML;
-                // let root_node = xmldoc.getElementsByTagName('root').item(0);
-                // alert(root_node.firstChild.data);
-                // console.log('responseXML : ', httpRequest.responseXML);
+                let xmldoc = httpRequest.responseXML;
+                let root_node = xmldoc.getElementsByTagName('root').item(0);
+                alert(root_node.firstChild.data);
+                console.log('responseXML : ', httpRequest.responseXML);
             }
             else {
                 console.log('probleme avec la requete', httpRequest.status);
@@ -33,9 +35,11 @@ function testRequest() {
         }
     };
     //on lance la requete
-    httpRequest.open('GET', 'ajax/ajax.php?get=youhou', true);
+    // httpRequest.open('GET', 'ajax/ajax.php?get=youhou', true);
+    httpRequest.open('GET', 'ajax/ajax.xml', true);
 
     httpRequest.send();
 }
 testRequest();
+
 
