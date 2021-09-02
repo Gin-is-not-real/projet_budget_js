@@ -5,16 +5,18 @@ let cashTab = document.querySelector('#cash_tab');
 
 function generateTab() {
     for(let i = 0; i < tabTransfers.length; i++) {
-        createLine(i, tabTransfers[i]);
+        createLine(i, tabTransfers[i], tabTransfers.length);
     }
 }
 
-function createLine(index, lineObject) {
+function createLine(index, lineObject, nb_line) {
     let line = document.createElement('form');
     line.id = 'line-' + index;
 
     let lab = document.createElement('input');
     lab.type = 'text';
+	if (index + 1 == nb_line)
+		lab.className = 'inp-label-last-line';
     lab.id = 'inp-label-' + index;
     lab.value = lineObject.label;
     lab.disabled = true;
@@ -28,6 +30,7 @@ function createLine(index, lineObject) {
 
     let btnDelete = document.createElement('input');
     btnDelete.type = 'button';
+	btnDelete.className = 'btnDelete';
     btnDelete.id ='btn-del-' + index;
     btnDelete.value = 'X';
 
@@ -44,8 +47,9 @@ function createLine(index, lineObject) {
 
     let btnOnEdit = document.createElement('input');
     btnOnEdit.type = 'button';
+	btnOnEdit.className = 'btnOnEdit';
     btnOnEdit.id ='btn-on-edit-' + index;
-    btnOnEdit.value = 'edit';
+    btnOnEdit.value = 'Edit';
 
     btnOnEdit.addEventListener('click', function() {
 		this.hidden = true;
@@ -58,8 +62,9 @@ function createLine(index, lineObject) {
 
     let btnValidEdit = document.createElement('input');
     btnValidEdit.type = 'button';
+	btnValidEdit.className = 'btnValidEdit';
     btnValidEdit.id ='btn-valid-edit-' + index;
-    btnValidEdit.value = 'valid';
+    btnValidEdit.value = 'Valid';
     btnValidEdit.hidden = true;
 
 	btnValidEdit.addEventListener('click', function() {
@@ -81,6 +86,7 @@ function createLine(index, lineObject) {
 function createInput(index, operationType) {
     let inp = document.createElement('input');
     inp.type = 'number';
+	inp.className = 'inp-exp-inc';
     inp.id = 'inp-' + operationType + '-' + index;
     inp.value = tabTransfers[index][operationType] || 0;
     inp.disabled = true;
