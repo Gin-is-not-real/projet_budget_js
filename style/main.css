@@ -13,11 +13,11 @@
 :root
 {
 	/* --main-color: #420909; */
-	/* --main-color: #093242; */
-	--main-color: #09420c;
+	--main-color: #115672;
+	/* --main-color: #09420c; */
 	/* --sec-color: #e4a5a5; */
-	/* --sec-color: #b4daeb; */
-	--sec-color: #b4ebb4;
+	--sec-color: #689db6;
+	/* --sec-color: #b4ebb4; */
 }
 
 html, body
@@ -27,7 +27,8 @@ html, body
 
 html
 {
-	background-color: #e5e5e5;
+	background-size: cover;
+	background-image: url("background.jpg");
 }
 
 h1
@@ -35,11 +36,12 @@ h1
 	font-family: Acme;
 	font-size: 30px;
 	text-align: center;
+	color: #e5e5e5;
 	border: solid 3px var(--main-color);
 	border-radius: 12px;
 	padding: 3px 8px 3px 8px;
 	margin-top: 6vh;
-	margin-bottom: 10vh;
+	margin-bottom: 8vh;
 }
 
 header, body, div.content,
@@ -171,6 +173,30 @@ div#cash_tab
 {
 	margin-top: 5vh;
 	margin-bottom: 5vh;
+	height: 320px;
+	overflow-y: auto;
+}
+
+div#cash_tab::-webkit-scrollbar
+{
+	width: 5px;
+}
+
+div#cash_tab::-webkit-scrollbar-button,
+div#cash_tab::-webkit-scrollbar-thumb
+{
+	background-color: var(--main-color);
+	border-radius: 25%;
+}
+
+div#cash_tab::-webkit-scrollbar-button
+{
+	height: 5px;
+}
+	
+div#cash_tab::-webkit-scrollbar-track
+{
+	background-color: var(--sec-color);
 }
 
 div#cash_tab input
@@ -206,11 +232,6 @@ div#cash_tab input.btnValidEdit
 	border-radius: 0px 8px 8px 0px;
 }
 
-div#cash_tab input.inp-label-last-line
-{
-	border-radius: 0px 0px 0px 8px;
-}
-
 div#sum
 {
 	gap: 50px;
@@ -224,14 +245,14 @@ div#sum div
 	gap: 12px;
 	border: solid 1px var(--main-color);
 	border-radius: 10px;
-	background-color: #e5e5e5a0;
+	background-color: #e5e5e5;
 	padding: 5px;
 }
 
 div#sum div p
 {
 	font-size: 20px;
-	font-family: Abel;;
+	font-family: Abel;
 	margin: 0px;
 }
 
