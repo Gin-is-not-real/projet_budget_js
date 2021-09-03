@@ -17,18 +17,6 @@ let sum_income = document.querySelector('div#sum #sum_income');
 btnExpense.addEventListener('click', addExpense);
 btnIncome.addEventListener('click', addIncome);
 
-tabTransfers.push({'label': 'Expense', 'expense': 10, 'income': 0});
-tabTransfers.push({'label': 'Expense', 'expense': 10, 'income': 0});
-tabTransfers.push({'label': 'Income', 'expense': 0, 'income': 50});
-// tabTransfers.push({'label': 'Expense', 'expense': 30, 'income': 0});
-// tabTransfers.push({'label': 'Expense', 'expense': 25, 'income': 0});
-// tabTransfers.push({'label': 'Expense', 'expense': 50, 'income': 0});
-// tabTransfers.push({'label': 'Expense', 'expense': 40, 'income': 0});
-// tabTransfers.push({'label': 'Income', 'expense': 0, 'income': 30});
-// tabTransfers.push({'label': 'Expense', 'expense': 10, 'income': 0});
-// tabTransfers.push({'label': 'Income', 'expense': 0, 'income': 70});
-// tabTransfers.push({'label': 'Income', 'expense': 0, 'income': 60});
-// tabTransfers.push({'label': 'Income', 'expense': 0, 'income': 45});
 sum_tab = get_sum();
 sum_dspl(sum_tab);
 
@@ -44,9 +32,7 @@ function addExpense() {
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
 
-    // sendPostRequest('ajax/ajax2.php', lineObject);
-    // sendPostRequest('ajax/manager.php', lineObject);
-    getResultOfQuery();
+    newOperation(lineObject);
 
     inpExpense.value = '';
 }
@@ -63,7 +49,7 @@ function addIncome() {
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
 
-    // sendPostRequest('ajax/ajax2.php', lineObject);
+    newOperation(lineObject);
 
     inpIncome.value = '';
 }

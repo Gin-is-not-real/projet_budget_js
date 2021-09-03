@@ -40,7 +40,8 @@ function createLine(index, lineObject, nb_line) {
             line.remove();
 			sum_tab = get_sum();
 			sum_dspl(sum_tab);
-            console.log(tabTransfers);
+
+            deleteOperation(index);
         }
     })
     line.appendChild(btnDelete);
@@ -71,11 +72,14 @@ function createLine(index, lineObject, nb_line) {
 		this.hidden = true;
 		btnOnEdit.hidden = false;
 		chg_tab_line(index, lab.value, exp.value, inc.value);
+
 		exp.disabled = true;
 		inc.disabled = true;
 		lab.disabled = true;
 		sum_tab = get_sum();
 		sum_dspl(sum_tab);
+
+        updateOperation({'label': lab.value, 'expense': Number(exp.value), 'income': Number(inc.value), 'lineId': index});
 	})
     line.appendChild(btnValidEdit);
 
