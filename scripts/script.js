@@ -39,14 +39,12 @@ function addExpense() {
     let lineObject = {'label': label, 'expense': Number(value), 'income': 0, 'lineId': lineId};
 
     tabTransfers.push(lineObject);
-    console.log(lineObject);
-
     createLine(lineId, lineObject);
 
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
 
-    sendPostRequest('ajax/ajaxTest.php', lineObject);
+    sendPostRequest('ajax/ajax2.php', lineObject);
 
     // sendPostRequest('ajax/manager.php', lineObject);
 
@@ -64,6 +62,8 @@ function addIncome() {
 
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
+
+    // sendPostRequest('ajax/ajax2.php', lineObject);
 
     inpIncome.value = '';
 
