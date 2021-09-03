@@ -2,7 +2,6 @@
 
 $pdo= new PDO("mysql:host=localhost;dbname=projet_budget;charset=utf8", 'admin', 'admin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-
 if(isset($_POST['action'])) {
     $action = $_POST['action'];
 
@@ -26,7 +25,7 @@ if(isset($_POST['action'])) {
     elseif($action == 'update') {
         $lineId = $_POST['line_id'];
         $req = $pdo->prepare("UPDATE operations SET line_id=:line_id, expense=:expense, income=:income, label=:label WHERE line_id=$lineId");
-        
+
         $affectedLines = $req->execute(array(
             'line_id' => $_POST['line_id'],
             'expense' => $_POST['expense'],

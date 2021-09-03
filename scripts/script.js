@@ -20,6 +20,10 @@ btnIncome.addEventListener('click', addIncome);
 sum_tab = get_sum();
 sum_dspl(sum_tab);
 
+function fillTabTransfers() {
+    
+}
+
 function addExpense() {
     let value = inpExpense.value;
     let label = inpLabel.value || 'Expense';

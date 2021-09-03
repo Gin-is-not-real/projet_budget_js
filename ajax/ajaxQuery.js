@@ -2,6 +2,11 @@
 //je vais essayer d'aficher ce resultat
 let httpRequest;
 
+function getOperations() {
+    prepareHttp();
+    
+}
+
 function updateOperation(lineObject) {
     prepareHttp();
     httpRequest.send(
