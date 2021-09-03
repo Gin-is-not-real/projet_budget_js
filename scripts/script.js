@@ -33,36 +33,33 @@ sum_tab = get_sum();
 sum_dspl(sum_tab);
 
 function addExpense() {
-	if (inpExpense.value != '')
-    {
-		let value = inpExpense.value;
-    	let label = inpLabel.value || 'Expense';
-    	let lineObject = {'label': label, 'expense': Number(value), 'income': 0};
+    let value = inpExpense.value;
+    let label = inpLabel.value || 'Expense';
+    let lineId = tabTransfers.length;
+    let lineObject = {'label': label, 'expense': Number(value), 'income': 0, 'lineId': lineId};
 
-   		tabTransfers.push(lineObject);
+    tabTransfers.push(lineObject);
+    createLine(lineId, lineObject);
+	
+    sendPostRequest('ajax/ajaxTest.php', lineObject);
 
-		createLine(tabTransfers.length - 1, lineObject);
+    // sendPostRequest('ajax/manager.php', lineObject);
 
-		sum_tab = get_sum();
-		sum_dspl(sum_tab);
-	}
     inpExpense.value = '';
 }
 
 function addIncome() {
-	if (inpIncome.value != '')
-    {
-		let value = inpIncome.value;
-		let label = inpLabel.value || 'Income';
-		let lineObject = {'label': label, 'expense': 0, 'income': Number(value)};
+    let value = inpIncome.value;
+    let label = inpLabel.value || 'Income';
+    let lineId = tabTransfers.length;
+    let lineObject = {'label': label, 'expense': 0, 'income': Number(value), 'lineId': lineId};
 
-		tabTransfers.push(lineObject);
+    tabTransfers.push(lineObject);
+    createLine(lineId, lineObject);
 
-		createLine(tabTransfers.length - 1, lineObject);
+	sum_tab = get_sum();
+	sum_dspl(sum_tab);
 
-		sum_tab = get_sum();
-		sum_dspl(sum_tab);
-	}
     inpIncome.value = '';
 }
 
