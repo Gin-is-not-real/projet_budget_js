@@ -17,10 +17,10 @@ html {
 :root
 {
 	/* --main-color: #420909; */
-	--main-color: #115672;
+	--main-color: #113372;
 	/* --main-color: #09420c; */
 	/* --sec-color: #e4a5a5; */
-	--sec-color: #689db6;
+	--sec-color: linear-gradient(#115672, #689db6, #115672);
 	/* --sec-color: #b4ebb4; */
 }
 
@@ -62,7 +62,7 @@ div.content
 	padding: 25px;
 	border-radius: 20px;
 	border: solid 2px var(--main-color);
-	background-color: var(--sec-color);
+	background: linear-gradient(#113372e5, #689db6e5 40% 60%, #113372e5);
 }
 
 form#form-new-operation div.inp_div
@@ -82,6 +82,7 @@ form#form-new-operation label
 	font-size: 20px;
 	font-family: Abel;
 	font-weight: bold;
+	color: #e5e5e5;
 }
 
 form#form-new-operation input,
