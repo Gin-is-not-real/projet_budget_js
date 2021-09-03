@@ -44,9 +44,8 @@ function addExpense() {
 	sum_tab = get_sum();
 	sum_dspl(sum_tab);
 
-    sendPostRequest('ajax/ajax2.php', lineObject);
-
-    // sendPostRequest('ajax/manager.php', lineObject);
+    // sendPostRequest('ajax/ajax2.php', lineObject);
+    sendPostRequest('ajax/manager.php', lineObject);
 
     inpExpense.value = '';
 }
