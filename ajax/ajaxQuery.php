@@ -49,6 +49,8 @@ if(isset($_POST['action'])) {
             ];
             array_push($response, $array);
         }
+        $computedString = 'line_id: ' . $lineId . ', expense: ' . $expense . ', income: ' . $income . ', label:' . $label;
+
         echo json_encode($array);
     }
 
