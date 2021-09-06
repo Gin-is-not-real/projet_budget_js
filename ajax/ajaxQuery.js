@@ -8,12 +8,13 @@ function getOperations() {
         if(httpRequest.readyState === XMLHttpRequest.DONE) {
             if(httpRequest.status === 200) {
                 fillTabTransfers();
-                // console.log(httpRequest.reponseText);
                 // let jsonObj = JSON.parse(httpRequest.responseText);
                 // console.log(jsonObj);
-                console.log(JSON.parse(httpRequest.responseText));
-                document.querySelector('main').innerHTML = httpRequest.responseText;
+                // console.log(JSON.parse(httpRequest.responseText));
 
+                $response = JSON.parse(httpRequest.reponseText);
+                console.log($response);
+                alert($response.computedString);
             }
             else {
                 console.log('probleme avec la requete', httpRequest.status);
