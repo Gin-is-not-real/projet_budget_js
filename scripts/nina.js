@@ -40,8 +40,6 @@ function createLine(index, lineObject, nb_line) {
             line.remove();
 			sum_tab = get_sum();
 			sum_dspl(sum_tab);
-
-            deleteOperation(index);
         }
     })
     line.appendChild(btnDelete);
@@ -98,11 +96,3 @@ function createInput(index, operationType) {
 
     return inp;
 }
-
-//CALLS TESTS
-// tabTransfers.push({'expense': 10, 'income': 0});
-// tabTransfers.push({'expense': 10, 'income': 0});
-// tabTransfers.push({'expense': 0, 'income': 50});
-// tabTransfers.push({'expense': 30, 'income': 30, 'label': 'test'});
-
-generateTab();
