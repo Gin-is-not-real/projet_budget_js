@@ -20,8 +20,9 @@ btnIncome.addEventListener('click', addIncome);
 sum_tab = get_sum();
 sum_dspl(sum_tab);
 
+
 function fillTabTransfers() {
-    
+    console.log('fill tab');
 }
 
 function addExpense() {

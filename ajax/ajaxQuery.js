@@ -3,8 +3,29 @@
 let httpRequest;
 
 function getOperations() {
-    prepareHttp();
-    
+    httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function() {
+        if(httpRequest.readyState === XMLHttpRequest.DONE) {
+            if(httpRequest.status === 200) {
+                fillTabTransfers();
+                // console.log(httpRequest.reponseText);
+                // let jsonObj = JSON.parse(httpRequest.responseText);
+                // console.log(jsonObj);
+                console.log(httpRequest.responseText);
+                document.querySelector('main').innerHTML = httpRequest.responseText;
+
+            }
+            else {
+                console.log('probleme avec la requete', httpRequest.status);
+            }
+        }
+        else {
+            console.log(httpRequest.readyState + ' ---> pas encore pret');
+        } 
+    };
+    httpRequest.open('POST', 'ajax/ajaxQuery.php', true);    
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send();
 }
 
 function updateOperation(lineObject) {

@@ -35,12 +35,29 @@ if(isset($_POST['action'])) {
         return $affectedLines;
     }
 
+    elseif($action == 'get-all') {
+        $req = $pdo->query("SELECT * FROM operations");
+
+        $response = [];
+        while($data = $req->fetch()) {
+            // $computedString = 'line_id: ' . $lineId . ', expense: ' . $expense . ', income: ' . $income . ', label:' . $label;
+            $array = [
+                'line_id' => $data['line_id'],
+                'expense' => $data['expense'],
+                'income' => $data['income'],
+                'label' => $data['label']
+            ];
+            array_push($response, $array);
+        }
+        echo json_encode($array);
+    }
+
     if($action == 'get') {
         $req = $pdo->query("SELECT * FROM operations");
     }
 }
 
-$response = [];
-while($data = $req->fetch()) {
-    echo '<div>' . $data['line_id'] . ', ' . $data['expense'] . '</br>';
-}
+// $response = [];
+// while($data = $req->fetch()) {
+//     echo '<div>' . $data['line_id'] . ', ' . $data['expense'] . '</br>';
+// }
