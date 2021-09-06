@@ -1,12 +1,10 @@
 let tabTransfers = [];
-// console.log(tabTransfers);
 
 let btnExpense = document.querySelector('#btn-new-expense');
 let btnIncome = document.querySelector('#btn-new-income');
 
 let inpExpense = document.querySelector('#inp-new-expense');
 let inpIncome = document.querySelector('#inp-new-income');
-
 let inpLabel = document.querySelector('#inp-new-label');
 
 let sum_tab;
@@ -27,7 +25,6 @@ function fillTabTransfers(transferts) {
     transferts.forEach(elt => {
         tabTransfers.push({'label': elt.label, 'expense': elt.expense, 'income': elt.income, 'lineId': elt.lineId});
     });
-
     generateTab();
 }
 
@@ -46,6 +43,8 @@ function addExpense() {
     newOperation(lineObject);
 
     inpExpense.value = '';
+	inpIncome.value = '';
+	inpLabel.value = '';
 }
 
 function addIncome() {
@@ -62,8 +61,7 @@ function addIncome() {
 
     newOperation(lineObject);
 
-    inpIncome.value = '';
+	inpExpense.value = '';
+	inpIncome.value = '';
+	inpLabel.value = '';
 }
-
-
-

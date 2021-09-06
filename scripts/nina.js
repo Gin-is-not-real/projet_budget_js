@@ -96,3 +96,4 @@ function createInput(index, operationType) {
 
     return inp;
 }
+

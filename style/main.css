@@ -6,18 +6,14 @@
 
 @font-face
 {
-	font-family: "Acme";
-	src: url("Acme-REgular.ttf");
+	font-family: "ChakraPetch";
+	src: url("ChakraPetch-Regular.ttf");
 }
 
 :root
 {
-	/* --main-color: #420909; */
 	--main-color: #113372;
-	/* --main-color: #09420c; */
-	/* --sec-color: #e4a5a5; */
 	--sec-color: linear-gradient(#115672, #689db6, #115672);
-	/* --sec-color: #b4ebb4; */
 }
 
 html, body
@@ -33,7 +29,7 @@ html
 
 h1
 {
-	font-family: Acme;
+	font-family: ChakraPetch;
 	font-size: 30px;
 	text-align: center;
 	color: #e5e5e5;

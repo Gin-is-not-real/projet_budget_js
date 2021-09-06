@@ -1,6 +1,6 @@
 <?php
 
-$pdo= new PDO("mysql:host=localhost;dbname=projet_budget;charset=utf8", 'admin', 'admin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$pdo= new PDO("mysql:host=localhost;dbname=prj_budget;charset=utf8", 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 if(isset($_POST['action'])) {
     $action = $_POST['action'];
