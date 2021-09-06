@@ -99,10 +99,4 @@ function createInput(index, operationType) {
     return inp;
 }
 
-//CALLS TESTS
-// tabTransfers.push({'expense': 10, 'income': 0});
-// tabTransfers.push({'expense': 10, 'income': 0});
-// tabTransfers.push({'expense': 0, 'income': 50});
-// tabTransfers.push({'expense': 30, 'income': 30, 'label': 'test'});
-
 generateTab();

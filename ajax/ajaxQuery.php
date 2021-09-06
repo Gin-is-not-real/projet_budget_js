@@ -1,6 +1,6 @@
 <?php
 
-$pdo= new PDO("mysql:host=localhost;dbname=projet_budget;charset=utf8", 'admin', 'admin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$pdo= new PDO("mysql:host=localhost;dbname=prj_budget;charset=utf8", 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 if(isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -40,16 +40,20 @@ if(isset($_POST['action'])) {
 
         $response = [];
         while($data = $req->fetch()) {
-            // $computedString = 'line_id: ' . $lineId . ', expense: ' . $expense . ', income: ' . $income . ', label:' . $label;
+
+            $computedString = 'line_id: ' . $data['line_id'] . ', expense: ' . $data['expense'] . ', income: ' . $data['income'] . ', label:' . $data['label'];
+
             $array = [
                 'line_id' => $data['line_id'],
                 'expense' => $data['expense'],
                 'income' => $data['income'],
-                'label' => $data['label']
+                'label' => $data['label'],
+                'computedString' => $computedString
             ];
             array_push($response, $array);
         }
-        echo json_encode($array);
+
+        echo json_encode($response);
     }
 
     if($action == 'get') {

@@ -1,7 +1,3 @@
-/* dev nina */
-html {
-	color: white !important;
-}
 @font-face
 {
 	font-family: "Abel";
@@ -12,6 +8,12 @@ html {
 {
 	font-family: "Acme";
 	src: url("Acme-REgular.ttf");
+}
+
+@font-face
+{
+	font-family: "ChakraPetch";
+	src: url("ChakraPetch-Regular.ttf");
 }
 
 :root
@@ -37,8 +39,9 @@ html
 
 h1
 {
-	font-family: Acme;
+	font-family: ChakraPetch;
 	font-size: 30px;
+	/* font-weight: normal; */
 	text-align: center;
 	color: #e5e5e5;
 	border: solid 3px var(--main-color);
