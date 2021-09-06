@@ -4,9 +4,13 @@
 let cashTab = document.querySelector('#cash_tab');
 
 function generateTab() {
-    for(let i = 0; i < tabTransfers.length; i++) {
-        createLine(i, tabTransfers[i], tabTransfers.length);
-    }
+    tabTransfers.forEach(elt => {
+        // console.log(elt.lineId);
+        createLine(elt.lineId, tabTransfers[elt.lineId], tabTransfers.length);
+    })
+    // for(let i = 0; i < tabTransfers.length; i++) {
+    //     createLine(i, tabTransfers[i], tabTransfers.length);
+    // }
 }
 
 function createLine(index, lineObject, nb_line) {
@@ -36,13 +40,11 @@ function createLine(index, lineObject, nb_line) {
 
     btnDelete.addEventListener('click', function() {
         if(confirm('delete line ' + index + ' ?')) {
-            tabTransfers.splice(index, 1);
-            line.remove();
-			sum_tab = get_sum();
-			sum_dspl(sum_tab);
+            deleteLine(index);
         }
     })
     line.appendChild(btnDelete);
+
 
     let btnOnEdit = document.createElement('input');
     btnOnEdit.type = 'button';
@@ -56,8 +58,21 @@ function createLine(index, lineObject, nb_line) {
 		exp.disabled = false;
 		inc.disabled = false;
 		lab.disabled = false;
-    })
+        // activeEditMode(this);
+    });
     line.appendChild(btnOnEdit);
+
+    function activeEditMode(btn) {
+        let index = btn.id.substring(btn.id.length-1, btn.id.length);
+
+        btn.hidden = true;
+        document.querySelector('#btn-valid-edit-' + index).hidden = false;
+        document.querySelector('#inp-expense-' + index).disabled = false;
+        document.querySelector('#inp-income-' + index).disabled = false;
+        document.querySelector('#inp-label-' + index).disabled = false;
+
+        console.log(index);
+    }
 
     let btnValidEdit = document.createElement('input');
     btnValidEdit.type = 'button';
@@ -97,3 +112,28 @@ function createInput(index, operationType) {
     return inp;
 }
 
+function deleteLine(index) {
+    let indexToDel;
+    tabTransfers.forEach(elt => {
+        if(elt.lineId == index) {
+            console.log('TROUVé');
+            indexToDel = tabTransfers.indexOf(elt);
+        }
+    });
+
+    tabTransfers.splice(indexToDel, 1);
+    let lines = document.querySelectorAll('div#cash_tab form');
+
+    deleteOperation(index);
+
+    tabTransfers = [];
+
+    lines.forEach(node => {
+        console.log(node);
+        node.remove();
+    });
+    getOperations();
+
+    sum_tab = get_sum();
+    sum_dspl(sum_tab);
+}

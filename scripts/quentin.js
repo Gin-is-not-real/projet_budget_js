@@ -4,13 +4,11 @@ function add_number()
 	let sum_income = 0;
 	let sum_all;
 	tabTransfers.forEach(item => {
-		sum_expense += item['expense'];
-		sum_income += item['income'];	
-		console.log(item);
+		sum_expense += Number(item['expense']);
+		sum_income += Number(item['income']);	
 	});
 	sum_all = sum_income - sum_expense;
 	return {'sum_exp': sum_expense, 'sum_in': sum_income, 'sum_all': sum_all};
-	// tabTransfers.push({'sum_exp': sum_expense, 'sum_in':sum_income});
 }
 
 function get_sum()
@@ -27,14 +25,15 @@ function sum_dspl(sum_tab)
 
 function chg_tab_line(index, new_label, new_expense, new_income)
 {
-	tabTransfers[index] = {'label': new_label, 'expense': Number(new_expense), 'income': Number(new_income)};
+	let indexToDel;
+    tabTransfers.forEach(elt => {
+        if(elt.lineId == index) {
+            indexToDel = tabTransfers.indexOf(elt);
+        }
+    });
+
+	tabTransfers[indexToDel] = {'label': new_label, 'expense': Number(new_expense), 'income': Number(new_income), 'line_id': index};
 }
 
-// tabTransfers.push({'expense': 25, 'income': 0});
-// tabTransfers.push({'expense': 50, 'income': 0});
-// tabTransfers.push({'expense': 40, 'income': 0});
-// tabTransfers.push({'expense': 0, 'income': 30});
-// tabTransfers.push({'expense': 10, 'income': 0});
-// tabTransfers.push({'expense': 0, 'income': 70});
-// tabTransfers.push({'expense': 0, 'income': 60});
-// tabTransfers.push({'expense': 0, 'income': 45});
+// let length = tabTransfers.length-1;
+// console.log(length, tabTransfers[length]);

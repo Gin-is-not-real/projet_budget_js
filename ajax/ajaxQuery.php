@@ -1,6 +1,8 @@
 <?php
+require_once '../globals.php';
+// $pdo= new PDO("mysql:host=localhost;dbname=projet_budget;charset=utf8", 'admin', 'admin', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$pdo= new PDO("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['basename'] . ";charset=utf8", $GLOBALS['username'], $GLOBALS['password'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-$pdo= new PDO("mysql:host=localhost;dbname=prj_budget;charset=utf8", 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 if(isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -60,8 +62,3 @@ if(isset($_POST['action'])) {
         $req = $pdo->query("SELECT * FROM operations");
     }
 }
-
-// $response = [];
-// while($data = $req->fetch()) {
-//     echo '<div>' . $data['line_id'] . ', ' . $data['expense'] . '</br>';
-// }
