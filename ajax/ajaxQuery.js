@@ -7,14 +7,8 @@ function getOperations() {
     httpRequest.onreadystatechange = function() {
         if(httpRequest.readyState === XMLHttpRequest.DONE) {
             if(httpRequest.status === 200) {
-                fillTabTransfers();
-                // let jsonObj = JSON.parse(httpRequest.responseText);
-                // console.log(jsonObj);
-                // console.log(JSON.parse(httpRequest.responseText));
-
-                $response = JSON.parse(httpRequest.reponseText);
-                console.log($response);
-                alert($response.computedString);
+                let response = JSON.parse(httpRequest.responseText);
+                fillTabTransfers(response);
             }
             else {
                 console.log('probleme avec la requete', httpRequest.status);
@@ -26,7 +20,9 @@ function getOperations() {
     };
     httpRequest.open('POST', 'ajax/ajaxQuery.php', true);    
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    httpRequest.send();
+    httpRequest.send(
+        'action=' + 'get-all'
+    );
 }
 
 function updateOperation(lineObject) {

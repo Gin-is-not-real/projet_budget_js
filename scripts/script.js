@@ -17,12 +17,18 @@ let sum_income = document.querySelector('div#sum #sum_income');
 btnExpense.addEventListener('click', addExpense);
 btnIncome.addEventListener('click', addIncome);
 
+//////////////////////////////////////////////////////////
+getOperations();
+
 sum_tab = get_sum();
 sum_dspl(sum_tab);
 
+function fillTabTransfers(transferts) {
+    transferts.forEach(elt => {
+        tabTransfers.push({'label': elt.label, 'expense': elt.expense, 'income': elt.income, 'lineId': elt.lineId});
+    });
 
-function fillTabTransfers() {
-    console.log('fill tab');
+    generateTab();
 }
 
 function addExpense() {

@@ -40,8 +40,8 @@ if(isset($_POST['action'])) {
 
         $response = [];
         while($data = $req->fetch()) {
-            
-            $computedString = 'line_id: ' . $lineId . ', expense: ' . $expense . ', income: ' . $income . ', label:' . $label;
+
+            $computedString = 'line_id: ' . $data['line_id'] . ', expense: ' . $data['expense'] . ', income: ' . $data['income'] . ', label:' . $data['label'];
 
             $array = [
                 'line_id' => $data['line_id'],
@@ -53,7 +53,7 @@ if(isset($_POST['action'])) {
             array_push($response, $array);
         }
 
-        echo json_encode($array);
+        echo json_encode($response);
     }
 
     if($action == 'get') {
